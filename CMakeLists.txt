@@ -5,12 +5,12 @@ project(EPI)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 add_definitions(-DBOOST_TEST_DYN_LINK)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 
 
 enable_testing()
 
-add_executable(Test test/11_01.cpp)
+add_executable(Test test/14_01.cpp)
 
 target_link_libraries(
   Test
