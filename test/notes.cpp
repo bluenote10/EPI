@@ -1,4 +1,11 @@
 
+// clear the lowest set bit of x
+x & (x - 1)
+
+// extract the lowest set bit of x
+x & ~(x - 1)
+
+
 
 // determine extreme values of a type T
 #include <limits>
