@@ -2,15 +2,15 @@ cmake_minimum_required(VERSION 2.8)
 
 project(EPI)
 
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-add_definitions(-DBOOST_TEST_DYN_LINK)
+#find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+#add_definitions(-DBOOST_TEST_DYN_LINK)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 
 
 enable_testing()
 
-add_executable(Test test/10_02.cpp)
+add_executable(Test test/12_02.cpp)
 
 target_link_libraries(
   Test
