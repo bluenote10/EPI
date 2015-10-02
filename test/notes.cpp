@@ -8,6 +8,13 @@ x & ~(x - 1)
 // swap bit i
 x ^ (1L << i)
 
+// how much space does it require to represent an integer as a single bit,
+// corresponding to a "number on a line" (e.g. for storing a set of ints)?
+// 16 bit int, values 0..65000 => bit set has size 8k
+// 32 bit int, values 0..4294967296 = 4.2 * 10^9 => bit set has 512 MB
+// a reasonable range would be 0..10 million which has bit set size ~1 MB
+// question inspired from: http://alexbowe.com/rrr/
+
 
 // determine extreme values of a type T
 #include <limits>

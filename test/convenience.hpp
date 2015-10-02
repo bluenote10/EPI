@@ -6,6 +6,7 @@
 #include <list>
 #include <memory>
 #include <unordered_set>
+#include <unordered_map>
 
 using namespace std;
 
@@ -42,6 +43,20 @@ ostream& operator<<(ostream& os, const unordered_set<T>& s) {
   while (it != s.cend()) {
     if (i != 0) os << ", ";
     os << *it;
+    ++it; ++i;
+  }
+  os << "]";
+  return os;
+}
+
+template <typename T, typename U>
+ostream& operator<<(ostream& os, const unordered_map<T, U>& m) {
+  os << "[";
+  auto i = 0;
+  auto it = m.cbegin();
+  while (it != m.cend()) {
+    if (i != 0) os << ", ";
+    os << it->first << " -> " << it->second;
     ++it; ++i;
   }
   os << "]";
