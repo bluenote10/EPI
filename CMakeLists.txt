@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8) 
+cmake_minimum_required(VERSION 2.8)
 
 project(EPI)
 
@@ -10,7 +10,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 
 enable_testing()
 
-add_executable(Test test/18_02.cpp)
+add_executable(Test test/06_04.cpp)
 
 target_link_libraries(
   Test
@@ -18,5 +18,3 @@ target_link_libraries(
 )
 
 add_test(NAME MyTest COMMAND Test)
-
-
