@@ -24,7 +24,8 @@ x & ~(x - 1)
 // swap bit i
 x ^ (1L << i)
 
-
+// simple argument why quicksort/quickselect are worst case quadratic
+// => triangular numbers grow quadratically
 
 
 // -----------------------
