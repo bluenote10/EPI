@@ -10,7 +10,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 
 enable_testing()
 
-add_executable(Test test/10_03.cpp)
+add_executable(Test test/16_04.cpp)
 
 target_link_libraries(
   Test
