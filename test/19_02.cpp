@@ -58,6 +58,67 @@ bool test_reachability(const vector<vector<bool>>& walkable) {
 }
 
 
+
+struct Coordinate {
+  bool operator==(const Coordinate& that) const {
+    return x == that.x && y == that.y;
+  }
+
+  int x, y;
+};
+
+bool SearchHelper(vector<vector<int>>& maze, const Coordinate& cur, const Coordinate& e, vector<Coordinate>& path) {
+
+  if (cur == e) {
+    return true;
+  }
+
+  const int w = maze.size();
+  const int h = maze[0].size();
+
+  vector<vector<int>> shifts = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+  for (const auto& shift : shifts) {
+    int nx = cur.x + shift[0];
+    int ny = cur.y + shift[1];
+    if (nx >= 0 && nx < w && ny >= 0 && ny < h && maze[nx][ny] == 0) {
+      path.push_back(Coordinate{nx, ny});
+      maze[nx][ny] = 1;
+      bool isgood = SearchHelper(maze, path.back(), e, path);
+      if (isgood) {
+        return true;
+      } else {
+        path.pop_back();
+      }
+    }
+  }
+  return false;
+}
+
+vector<Coordinate> SearchMaze(vector<vector<int>> maze, const Coordinate& s, const Coordinate& e) {
+
+  vector<Coordinate> path;
+
+  // mark start as processed and add to path
+  maze[s.x][s.y] = 1;
+  path.push_back(s);
+
+  if (!SearchHelper(maze, s, e, path)) {
+    // if there is no path make it fully empty
+    path.pop_back();
+  }
+
+  return path;
+}
+
+
+
+
+
+
+
+
+
 int main(int argc, char** args) {
 
   vector<vector<bool>> walkable = {

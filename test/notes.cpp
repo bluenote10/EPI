@@ -27,6 +27,17 @@ x ^ (1L << i)
 // simple argument why quicksort/quickselect are worst case quadratic
 // => triangular numbers grow quadratically
 
+// terms for "the terminating case of a recursion":
+// initial condition, boundary condition, base case
+
+// Examples for cubic algorithms:
+// - matrix multiplication
+
+// "abstract data type" vs "data structure"
+// ADT means abstract functionality, examples: containers, dictionaries, and priority queues
+// A DS is a concrete implementation.
+
+
 // How to convert an recusion to iteration?
 // Basically: Use your own stack, and push parameters.
 Stack<Object> stack;
@@ -88,8 +99,64 @@ void print(int *a, int n)
     std::cout << "\n";
 }
 
+// Chomsky classes:
+/*
+Type-0 	Recursively enumerable 	Turing machine 	alpha -> beta (no restrictions)
+Type-1 	Context-sensitive 	Linear-bounded non-deterministic Turing machine 	alpha A beta -> alpha gamma beta
+Type-2 	Context-free 	Non-deterministic pushdown automaton 	A -> gamma
+Type-3 	Regular 	Finite state automaton 	A -> a and A -> aB (right-regular)
+
+gamma = terminals + non-terminals
+Difference CH2 vs CH3: RHS for CH3 only allows one non-terminal which is always
+either on the right or left (right/left) regular, while CH2 allows any combination
+on the RHS.
+Both have a single non-terminal on the LHS.
+
+https://en.wikipedia.org/wiki/Chomsky_hierarchy#Summary
+*/
+
+
+
+
+
+
+// -----------------------
+// Sorting
+// -----------------------
+
+// Insertion sort
+insertion_sort(item s[], int n)
+{
+  int i,j;                /* counters */
+  for (i=1; i<n; i++) {
+    j=i;
+    while ((j>0) && (s[j] < s[j-1])) {
+      swap(&s[j], &s[j-1]);
+      j = j-1;
+    }
+  }
+}
+
+// Selection sort
+selection_sort(int s[], int n)
+{
+  int i,j;                /* counters */
+  int min;                /* index of minimum */
+  for (i=0; i<n; i++) {
+    min=i;
+    for (j=i+1; j<n; j++) {
+      if (s[j] < s[min]) min=j;
+    }
+    swap(&s[i], &s[min]);
+  }
+}
 
 // Quicksort with nice partition implementation.
+// - Complexity: O(N log N) (best/average), O(N^2) (worst case)
+// - Memory: O(log N) (best/average), O(N) (worst case, unless Sedgewick version, which maintains O(log N))
+// - unstable, can be made stable by using O(N) additional memory (copying the arrays)
+//   there are rumors that there it is also possible to get stable + O(log N) memory,
+//   but apparently with worse performance.
 // http://codereview.stackexchange.com/questions/77782/quick-sort-implementation
 // Nice, because it moves both from left to right and right to left,
 // until the "<= pivot" and "> pivot" are BOTH violated.
@@ -129,6 +196,9 @@ void quicksort(int *arr, const int left, const int right, const int sz){
 
 
 /*
+
+Core language
+
 *** What are the types in C, Java, C++, and Perl? How many bits does it take to represent the basic types?
 
 *** What do floating point numbers look like in memory? Specifically, how many bits are there in a double and what sequence to the bits appear in?
@@ -156,11 +226,17 @@ implement addition, subtraction, and multiplication EXACTLY AS IF they were unsi
 i.e., operations do not have to test whether operands are negative.
 
 *** How would you implement a bit array class?
+
 *** Does the check x == x + 1 always return false for integer x?
+
 *** What does a C struct look like in memory? What does a C++ object look like in memory? What does a Java object look like in memory?
+
 *** What is the difference between an interpreted and a compiled language?
+
 *** What is garbage collection?
+
 *** How would you determine if call stack grows up or down relative to memory addresses?
+
 *** Give an example of a memory leak in Java.
 
 - open resource like a stream, and don't close it in finally.
@@ -175,8 +251,37 @@ Easy: Last op is function call.
 No, last op is a multiplication.
 
 *** Your manager reads an online article that says it is 10X faster to code in Python than in C++. He wants you to code exclusively in Python from now on. What would you say to him?
+
 *** What does an executable look like as a sequence of bytes?
+
+
+
+Programming language implementation
+
+*** Give an example of a language which cannot be parsed by any computer.
+
+Ex1: The language consisting of all programs which terminate.
+Ex2: The language consisting of finite sets of nxn matrices, which can be multiplied to the zero matrix
+     in a potentially infinite series.
+https://en.wikipedia.org/wiki/List_of_undecidable_problems
+
+*** What problems does dynamic linkage solve? What problems does it introduce?
+*** What is a functional language?
+*** What is a virtual function?
+*** How is method dispatch implemented in Java?
+*** What is automatic garbage collection and how is it implemented?
+*** What is a type-safe language?
+*** What is the difference between a lexer and a parser?
+*** Give an example of a language which cannot be recognized by a lexer.
+*** Give an example of a language which cannot be parsed by a parser.
+
 */
+
+
+
+
+
+
 
 // -----------------------
 // C++ specific
