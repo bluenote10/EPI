@@ -37,6 +37,9 @@ x ^ (1L << i)
 // ADT means abstract functionality, examples: containers, dictionaries, and priority queues
 // A DS is a concrete implementation.
 
+// Advanced trees material:
+// Red-Black:
+//   https://www.youtube.com/watch?v=tzq766Spphw
 
 // How to convert an recusion to iteration?
 // Basically: Use your own stack, and push parameters.
