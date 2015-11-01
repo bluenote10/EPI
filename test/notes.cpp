@@ -41,7 +41,7 @@ x ^ (1L << i)
 // Red-Black:
 //   https://www.youtube.com/watch?v=tzq766Spphw
 
-// How to convert an recusion to iteration?
+// How to convert an recursion to iteration?
 // Basically: Use your own stack, and push parameters.
 Stack<Object> stack;
 stack.push(first_object);
@@ -284,6 +284,17 @@ https://en.wikipedia.org/wiki/List_of_undecidable_problems
 
 
 
+// -----------------------
+// Streaming & Sketching
+// -----------------------
+
+/*
+Terminology:
+  - dyadic range: Refers to the concept of dividing an interval (or time)
+    into subintervals, which grow exponentially in size.
+
+
+*/
 
 
 // -----------------------
